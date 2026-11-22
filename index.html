@@ -11,7 +11,7 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>독후감 공모전 모아보기</title>
+<title>독후감·글쓰기 공모전 모아보기</title>
 <meta name="description" content="전국 독후감·독서감상문 공모전을 한곳에. 지금 접수 중인 것과 곧 열릴 것을 대상별로 찾아보세요.">
 <meta property="og:title" content="독후감 공모전 모아보기">
 <meta property="og:description" content="전국 독후감·독서감상문 공모전을 한곳에. 지금 접수 중인 것과 곧 열릴 것을 대상별로.">
@@ -44,6 +44,7 @@ header h1 { font-size: 26px; margin: 0 0 6px; letter-spacing: -.02em; }
 header p { margin: 0; color: var(--muted); font-size: 14px; }
 .upd { font-size: 12px; color: var(--muted); margin-top: 6px; }
 
+.tag.kind { font-weight: 600; }
 .filters { margin: 24px 0 8px; display: flex; flex-direction: column; gap: 10px;
   background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
 .frow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
@@ -89,12 +90,13 @@ footer a { color: var(--accent); }
 <body>
 <div class="wrap">
   <header>
-    <h1>독후감 공모전 모아보기</h1>
-    <p>전국 독후감·독서감상문 공모전을 한곳에 모았어요. 지금 낼 수 있는 것과 곧 열릴 것을 대상별로 찾아보세요.</p>
+    <h1>독후감·글쓰기 공모전 모아보기</h1>
+    <p>전국 독후감 공모전과 신춘문예·수필·칼럼 같은 글쓰기 공모전을 한곳에 모았어요. 지금 낼 수 있는 것과 곧 열릴 것을 대상별로 찾아보세요.</p>
     <div class="upd" id="upd"></div>
   </header>
 
   <div class="filters">
+    <div class="frow"><span>종류</span><div class="frow" id="fKind"></div></div>
     <div class="frow"><span>대상</span><div class="frow" id="fTarget"></div></div>
     <div class="frow"><span>책</span><div class="frow" id="fBook"></div></div>
     <div class="frow"><span>지역</span><div class="frow" id="fScope"></div></div>
@@ -129,7 +131,8 @@ footer a { color: var(--accent); }
 
   // 다음 접수 시기 — 올해 마감됐으면 해마다 같은 때 열린다고 보고 1년씩 미룹니다
   var items = window.CONTESTS.map(function (c) {
-    var s = d(c.start), e = d(c.end), status, ns = s, ne = e, guess = false;
+    var e = d(c.end), s = c.start ? d(c.start) : new Date(e.getTime() - 40 * DAY), status, ns = s, ne = e, guess = false;
+    if (!c.start && today <= e) s = ns = new Date(Math.min(s, today));
     if (today >= s && today <= e) status = "open";
     else if (today < s) status = "soon";
     else {
@@ -139,7 +142,7 @@ footer a { color: var(--accent); }
     return { c: c, status: status, s: ns, e: ne, guess: guess, left: Math.round((ne - today) / DAY) };
   });
 
-  var F = { target: "전체", book: "전체", scope: "전체", q: "" };
+  var F = { kind: "전체", target: "전체", book: "전체", scope: "전체", q: "" };
   function chips(id, key, opts) {
     var el = document.getElementById(id);
     el.innerHTML = opts.map(function (o) { return '<button class="chip" type="button" data-v="' + o + '" aria-pressed="' + (F[key] === o) + '">' + o + "</button>"; }).join("");
@@ -150,6 +153,7 @@ footer a { color: var(--accent); }
       render();
     };
   }
+  chips("fKind", "kind", ["전체", "독후감", "신춘문예", "문학상", "수필·에세이", "칼럼·논술"]);
   chips("fTarget", "target", ["전체", "초등", "청소년", "일반", "청년", "여성"]);
   chips("fBook", "book", ["전체", "자유", "지정", "주제"]);
   chips("fScope", "scope", ["전체", "전국만"]);
@@ -157,11 +161,12 @@ footer a { color: var(--accent); }
 
   function pass(it) {
     var c = it.c;
+    if (F.kind !== "전체" && (c.kind || "독후감") !== F.kind) return false;
     if (F.target !== "전체" && c.targets.indexOf(F.target) < 0) return false;
     if (F.book !== "전체" && c.book !== F.book) return false;
     if (F.scope === "전국만" && c.scope !== "전국") return false;
     if (F.q) {
-      var hay = [c.name, c.org, c.books, c.note, c.scope].join(" ");
+      var hay = [c.name, c.org, c.books, c.genre, c.kind, c.note, c.scope].join(" ");
       if (hay.indexOf(F.q) < 0) return false;
     }
     return true;
@@ -174,21 +179,25 @@ footer a { color: var(--accent); }
       badge = it.left <= 7
         ? '<span class="badge urgent">' + (it.left === 0 ? "오늘 마감" : "D-" + it.left) + "</span>"
         : '<span class="badge open">D-' + it.left + "</span>";
-    } else if (!it.guess) {
+    } else if (!it.guess && c.start) {
       badge = '<span class="badge soon">' + md(it.s) + " 시작</span>";
     } else {
       badge = '<span class="badge soon">' + it.s.getFullYear() + "년 " + (it.s.getMonth() + 1) + "월쯤</span>";
     }
-    var period = it.status === "open" || !it.guess
+    var period = !c.start
+      ? (it.guess ? "작년 마감 " + ymd(d(c.end)) : "~ " + ymd(it.e) + " 마감")
+      : it.status === "open" || !it.guess
       ? ymd(it.s) + " ~ " + ymd(it.e)
       : "작년 " + ymd(d(c.start)) + " ~ " + ymd(d(c.end));
     return '<article class="card' + (it.status === "open" ? " open" : "") + '">' +
       '<div class="top"><h3>' + esc(c.name) + "</h3>" + badge + "</div>" +
       '<div class="org">' + esc(c.org) + (c.cycle && c.cycle !== "매년" ? " · " + esc(c.cycle) : "") + "</div>" +
       '<div class="tags">' + c.targets.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") +
-      '<span class="tag">' + esc(BOOK[c.book] || c.book) + "</span>" +
+      (c.kind ? '<span class="tag kind">' + esc(c.kind) + "</span>" : "") +
+      (c.book ? '<span class="tag">' + esc(BOOK[c.book] || c.book) + "</span>" : "") +
       (c.scope !== "전국" ? '<span class="tag local">' + esc(c.scope) + " 주민만</span>" : "") + "</div>" +
       "<dl><dt>접수</dt><dd>" + esc(period) + "</dd>" +
+      (c.genre ? "<dt>분야</dt><dd>" + esc(c.genre) + "</dd>" : "") +
       (c.books ? "<dt>도서</dt><dd>" + esc(c.books) + "</dd>" : "") +
       (c.prize ? "<dt>시상</dt><dd>" + esc(c.prize) + "</dd>" : "") + "</dl>" +
       (c.note ? '<div class="note">' + esc(c.note) + "</div>" : "") +
