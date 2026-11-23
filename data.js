@@ -17,7 +17,7 @@
  *  genre     (글쓰기 공모전) 모집 분야. 이때 book 은 비워 둡니다
  *  start 가 없으면 마감일만 알고 있는 공모전이에요
  */
-window.UPDATED = "2026-11-23";
+window.UPDATED = "2026-11-24";
 window.CONTESTS = [
   {
     name: "광명시 올해의 책 독후감 공모전", org: "광명시도서관", scope: "전국",
@@ -214,5 +214,31 @@ window.CONTESTS = [
   {"kind": "수필·에세이", "name": "오뚜기 푸드에세이 공모전", "org": "오뚜기", "scope": "전국", "targets": ["일반"], "end": "2026-09-11", "genre": "음식 에세이", "prize": "총 88명, 1등 300만 원", "top": 300, "url": "https://www.superookie.com/activities/6a7448821a84e42b4175c8f2", "cycle": "매년", "note": "국민 누구나(등단 작가도 가능)", "start": "2026-08-08"},
   {"kind": "칼럼·논술", "name": "시장경제칼럼 공모전 (상반기)", "org": "자유기업원", "scope": "전국", "targets": ["청년", "일반"], "end": "2026-04-29", "genre": "칼럼 (원고지 10매, 약 2,000자)", "prize": "대상 30만 원 등", "top": 30, "url": "https://thinkyou.co.kr/mobile/contest/61784/", "cycle": "연 2회", "note": "1년에 2번(4월·11월) 열려요", "start": "2026-04-20"},
   {"kind": "칼럼·논술", "name": "시장경제칼럼 공모전 (하반기)", "org": "자유기업원", "scope": "전국", "targets": ["청년", "일반"], "end": "2026-11-18", "genre": "칼럼 (원고지 10매, 약 2,000자)", "prize": "대상 30만 원 등", "top": 30, "url": "https://linkareer.com/activity/354420", "cycle": "연 2회", "note": "1년에 2번(4월·11월) 열려요", "start": "2026-11-09"},
-  {"kind": "칼럼·논술", "name": "전국 논증적 글쓰기 대회", "org": "국립국어원", "scope": "전국", "targets": ["청소년", "일반"], "end": "2026-07-31", "genre": "논증적 글 (1,200자 내외)", "prize": "", "top": 0, "url": "https://linkareer.com/activity/327572", "cycle": "매년", "note": "사회 쟁점에 대한 내 생각을 쓰는 대회"}
+  {"kind": "칼럼·논술", "name": "전국 논증적 글쓰기 대회", "org": "국립국어원", "scope": "전국", "targets": ["청소년", "일반"], "end": "2026-07-31", "genre": "논증적 글 (1,200자 내외)", "prize": "", "top": 0, "url": "https://linkareer.com/activity/327572", "cycle": "매년", "note": "사회 쟁점에 대한 내 생각을 쓰는 대회"},
+
+  /* ---- 글쓰기 공모전 추가분 (2026-11-24) ---- */
+  {"kind": "문학상", "name": "제18회 손바닥문학상", "org": "한겨레21", "scope": "전국", "targets": ["일반"], "end": "2026-12-06", "genre": "소설·산문 (해마다 주제 있음)", "prize": "", "top": 0, "url": "https://www.wevity.com/index.php?c=find&gp=8&mode=ing", "cycle": "매년", "note": "평범한 사람들의 글쓰기를 응원하는 상. 등단 여부 상관없음. 마감일은 공모 사이트 D-day로 계산한 값이라 원문 확인 필요"},
+  {"kind": "문학상", "name": "제23회 세계문학상", "org": "세계일보", "scope": "전국", "targets": ["일반"], "end": "2026-12-10", "genre": "장편소설", "prize": "", "top": 0, "url": "https://www.wevity.com/index.php?c=find&gp=8&mode=ing", "cycle": "매년", "note": "신인·기성 모두 응모 가능"},
+  {"kind": "수필·에세이", "name": "필전 2026 조선 백일장", "org": "조선일보·한글학회", "scope": "전국", "targets": ["청소년", "일반"], "end": "2026-12-15", "genre": "글쓰기 백일장", "prize": "", "top": 0, "url": "https://www.wevity.com/index.php?c=find&cidx=23&gub=1", "cycle": "매년", "note": ""},
+  {"kind": "문학상", "name": "제1회 Daum AI 숏드라마 시나리오 공모전", "org": "다음", "scope": "전국", "targets": ["일반"], "end": "2026-11-26", "genre": "시나리오", "prize": "", "top": 0, "url": "https://www.wevity.com/index.php?c=find&cidx=23&gub=1", "cycle": "", "note": ""},
+  {"kind": "칼럼·논술", "name": "2026 세명 대학언론상", "org": "세명대 저널리즘대학원", "scope": "전국", "targets": ["청년"], "end": "2026-12-01", "genre": "기사·보도 글", "prize": "", "top": 0, "url": "https://www.wevity.com/index.php?c=find&cidx=23&gub=1", "cycle": "매년", "note": ""},
+  {"kind": "문학상", "name": "제1회 동물사랑 디카시 공모전", "org": "한국디카시인협회 서울북부지회", "scope": "전국", "targets": ["청소년", "일반"], "end": "2026-11-30", "genre": "디카시 (사진+짧은 시)", "prize": "", "top": 0, "url": "https://www.wevity.com/index.php?c=find&gp=6&mode=ing", "cycle": "", "note": ""},
+  {"kind": "문학상", "name": "스토리코스모스 신인소설상", "org": "스토리코스모스", "scope": "전국", "targets": ["일반"], "end": "2026-11-30", "genre": "소설", "prize": "", "top": 0, "url": "https://ilovecontest.com/bbs/board.php?bo_table=contest", "cycle": "매년", "note": ""},
+  {"kind": "문학상", "name": "포스텍 2027 SF 어워드", "org": "포스텍 소통과공론연구소", "scope": "전국", "targets": ["일반"], "end": "2027-01-10", "genre": "SF 소설", "prize": "", "top": 0, "url": "https://www.wevity.com/?c=find&gp=18&gub=4", "cycle": "매년", "note": ""},
+  {"kind": "문학상", "name": "제2회 블루카이트 창작 글쓰기 대회", "org": "블루카이트 출판사", "scope": "전국", "targets": ["일반"], "end": "2027-02-15", "genre": "창작 글", "prize": "", "top": 0, "url": "https://www.wevity.com/?c=find&gp=18&gub=4", "cycle": "", "note": "참가비 있음"},
+  {"kind": "문학상", "name": "GoodNovel 제2회 대형 웹소설 공모전", "org": "GoodNovel", "scope": "전국", "targets": ["일반"], "end": "2027-05-01", "genre": "웹소설", "prize": "", "top": 0, "url": "https://www.wevity.com/index.php?c=find&cidx=23&gub=1", "cycle": "", "note": ""},
+  {"kind": "문학상", "name": "제15회 제주4·3평화문학상", "org": "제주4·3평화재단", "scope": "전국", "targets": ["일반"], "end": "2026-11-20", "genre": "소설·시", "prize": "", "top": 0, "url": "https://cafe.daum.net/_c21_/home?grpid=Vwwa", "cycle": "매년", "note": ""},
+  {"kind": "문학상", "name": "제9회 박상륭상", "org": "박상륭상", "scope": "전국", "targets": ["일반"], "end": "2026-11-20", "genre": "소설", "prize": "", "top": 0, "url": "https://cafe.daum.net/_c21_/home?grpid=Vwwa", "cycle": "매년", "note": ""},
+  {"kind": "문학상", "name": "문학동네어린이문학상", "org": "문학동네", "scope": "전국", "targets": ["일반"], "end": "2026-10-31", "genre": "동화", "prize": "", "top": 0, "url": "https://cafe.daum.net/_c21_/home?grpid=Vwwa", "cycle": "매년", "note": ""},
+  {"kind": "문학상", "name": "문학동네동시문학상", "org": "문학동네", "scope": "전국", "targets": ["일반"], "end": "2026-10-31", "genre": "동시", "prize": "", "top": 0, "url": "https://cafe.daum.net/_c21_/home?grpid=Vwwa", "cycle": "매년", "note": ""},
+  {"kind": "문학상", "name": "문학동네초승달문학상", "org": "문학동네", "scope": "전국", "targets": ["일반"], "end": "2026-10-31", "genre": "어린이문학", "prize": "", "top": 0, "url": "https://cafe.daum.net/_c21_/home?grpid=Vwwa", "cycle": "매년", "note": ""},
+  {"kind": "수필·에세이", "name": "전태일문학상", "org": "전태일재단·경향신문", "scope": "전국", "targets": ["일반"], "end": "2026-07-10", "genre": "에세이 2편 (편당 원고지 30~40장, 인권 주제)", "prize": "", "top": 0, "url": "https://www.khan.co.kr/article/202604292055005", "cycle": "매년", "note": "같은 때 전태일청소년문학상(2008년 이후 출생, 시·산문·독후감)도 열려요"},
+  {"kind": "문학상", "name": "삶의향기 동서문학상", "org": "동서식품", "scope": "전국", "targets": ["여성"], "end": "2026-09-29", "genre": "시, 소설, 수필, 아동문학", "prize": "총상금 7,900만 원", "top": 0, "url": "https://ilovecontest.com/curation/7", "cycle": "매년", "note": "미등단 여성. AI 활용 작품 불가"},
+  {"kind": "수필·에세이", "name": "청년이야기 대상 수필 공모", "org": "좋은생각", "scope": "전국", "targets": ["청년"], "end": "2026-09-18", "genre": "생활 수필", "prize": "대상 200만 원", "top": 200, "url": "https://ilovecontest.com/curation/7", "cycle": "매년", "note": "만 18~39세"},
+  {"kind": "수필·에세이", "name": "매운당 이조년 문학 공모전", "org": "매운당 이조년 문학", "scope": "전국", "targets": ["초등", "청소년", "일반"], "end": "2026-07-10", "genre": "시, 시조, 수필", "prize": "", "top": 0, "url": "https://ilovecontest.com/curation/7", "cycle": "매년", "note": ""},
+  {"kind": "수필·에세이", "name": "둔촌백일장", "org": "둔촌백일장", "scope": "전국", "targets": ["초등", "청소년", "일반"], "end": "2026-07-06", "genre": "시, 시조, 수필", "prize": "", "top": 0, "url": "https://ilovecontest.com/curation/7", "cycle": "매년", "note": ""},
+  {"kind": "수필·에세이", "name": "스토리텔링 공모전 - 일상 속의 장애인", "org": "스토리텔링 공모전", "scope": "전국", "targets": ["일반"], "end": "2026-08-21", "genre": "실제 경험 수필", "prize": "", "top": 0, "url": "https://ilovecontest.com/curation/7", "cycle": "매년", "note": ""},
+  {"kind": "수필·에세이", "name": "해양작품 우수원고 모집", "org": "해양작품 공모", "scope": "전국", "targets": ["일반"], "end": "2026-08-31", "genre": "바다 관련 수필·논픽션", "prize": "", "top": 0, "url": "https://ilovecontest.com/curation/7", "cycle": "매년", "note": "미등단 일반인"},
+  {"kind": "문학상", "name": "목포문학상 (박화성소설상)", "org": "목포시", "scope": "전국", "targets": ["일반"], "end": "2026-05-29", "genre": "장편소설", "prize": "총상금 6천만 원", "top": 0, "url": "https://www.heraldk.com/article/2026022217450623175", "cycle": "매년", "note": "", "start": "2026-05-01"},
+  {"kind": "문학상", "name": "밀리로드 출간 공모전", "org": "밀리의서재", "scope": "전국", "targets": ["청년", "일반"], "end": "2026-05-29", "genre": "소설", "prize": "", "top": 0, "url": "https://ilovecontest.com/contest/genre/%EC%88%98%EA%B8%B0.%EC%82%AC%EC%97%B0", "cycle": "시즌제", "note": ""}
 ];
